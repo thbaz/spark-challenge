@@ -1,5 +1,5 @@
 master:
-  image: thbas/spark:2.2.0-hadoop-2.7
+  image: gettyimages/spark:2.1.0-hadoop-2.7
   command: bin/spark-class org.apache.spark.deploy.master.Master -h master
   hostname: master
   environment:
@@ -25,7 +25,7 @@ master:
     - ./data:/tmp/data  
 
 worker:
-  image: thbas/spark:2.2.0-hadoop-2.7
+  image: gettyimages/spark:2.1.0-hadoop-2.7
   command: bin/spark-class org.apache.spark.deploy.worker.Worker spark://master:7077
   hostname: worker
   environment:
@@ -53,7 +53,7 @@ worker:
     - ./data:/zeppelin/data
 
 zeppelin:
-  image: thbas/zeppelin:2.2.0-hadoop-2.7
+  image: dylanmei/zeppelin:latest
   hostname: zeppelin
   environment:
     ZEPPELIN_PORT: 8090
